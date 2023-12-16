@@ -56,6 +56,35 @@ void BST::insert(int k) {
     insert(root, k);
 }
 
+void BST::remove(Node*& r, int k) {
+    if (r == nullptr) {
+        return;
+    }
+    if (k < r->key) {
+        remove(r->left, k);
+    } else if (k > r->key) {
+        remove(r->right, k);
+    } else {
+        if (r->left == nullptr) {
+            Node* tmp = r->right;
+            delete r;
+            r = tmp;
+        } else if (r->right == nullptr) {
+            Node* tmp = r->left;
+            delete r;
+            r = tmp;
+        } else {
+            Node* tmp = getMin(r->right);
+            r->key = tmp->key;
+            remove(r->right, tmp->key);
+        }
+    }
+}
+
+void BST::remove(int k) {
+    remove(root, k);
+}
+
 Node* BST::search(Node* n, int k) {
     while (n != nullptr && k != n->key) {
         if (k < n->key) {
@@ -154,9 +183,5 @@ Node* BST::successor(Node* x) {
     }
     return y;
 }
-
-
-
-
 
 
