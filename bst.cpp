@@ -118,7 +118,7 @@ Node* BST::predecessor(Node* x) {
         return getMax(x->left);
     }
     Node* y = nullptr;
-    Node* current = x;
+    Node* current = root;
     while (current != nullptr) {
         if (x->key > current->key) {
             y = current;
@@ -141,7 +141,7 @@ Node* BST::successor(Node* x) {
         return getMin(x->right);
     }
     Node* y = nullptr;
-    Node* current = x;
+    Node* current = root;
     while (current != nullptr) {
         if (x->key < current->key) {
             y = current;
