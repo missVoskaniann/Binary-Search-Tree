@@ -18,6 +18,7 @@ public:
     void preorderTraversal();
 
     void insert(int k);
+    void remove(int k);
     Node* getMin();
     Node* getMax();
     Node* search(int k);
@@ -32,6 +33,7 @@ private:
     void postorderTraversal(Node* r);
     void preorderTraversal(Node* r);
     void insert(Node*& r, int k);
+    void remove(Node*& r, int k);
     Node* search(Node* n, int k);
     Node* getMin(Node* x);
     Node* getMax(Node* x);
